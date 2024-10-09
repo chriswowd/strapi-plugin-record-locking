@@ -111,7 +111,7 @@ export default function EntityLock() {
 
   return (
     lockStatus.isLocked && (
-      <Modal.Root defaultOpen={true} onClose={null}>
+      <Modal.Root defaultOpen={true} onClose={null} preventOverlayClose={true}>
         <Modal.Content>
           <Modal.Header>
             <Typography fontWeight="bold" textColor="neutral800" as="h2" id="title">
