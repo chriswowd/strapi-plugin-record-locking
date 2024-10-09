@@ -111,15 +111,6 @@ export default function EntityLock() {
     lockStatus.isLocked && (
       <Modal.Root open={true} onOpenChange={() => {}} modal={true}>
         <Modal.Content>
-          {/* Manually construct the header without a close button */}
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <Typography fontWeight="bold" textColor="neutral800" as="h2" id="title">
-              {formatMessage({
-                id: getTranslation('ModalWindow.CurrentlyEditing'),
-                defaultMessage: 'This entry is currently edited',
-              })}
-            </Typography>
-          </div>
           <Modal.Body>
             <Typography>
               {formatMessage(
