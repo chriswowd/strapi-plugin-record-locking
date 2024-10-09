@@ -214,7 +214,7 @@ function EntityLock() {
     return null;
   return lockStatus.isLocked && /* @__PURE__ */ jsx(Modal.Root, { open: true, onOpenChange: () => {
   }, modal: true, children: /* @__PURE__ */ jsxs(Modal.Content, { children: [
-    /* @__PURE__ */ jsx(Modal.Header, { children: /* @__PURE__ */ jsx(Typography, { fontWeight: "bold", textColor: "neutral800", as: "h2", id: "title", children: formatMessage({
+    /* @__PURE__ */ jsx("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "center" }, children: /* @__PURE__ */ jsx(Typography, { fontWeight: "bold", textColor: "neutral800", as: "h2", id: "title", children: formatMessage({
       id: getTranslation("ModalWindow.CurrentlyEditing"),
       defaultMessage: "This entry is currently edited"
     }) }) }),

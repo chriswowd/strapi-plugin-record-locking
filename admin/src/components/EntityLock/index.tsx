@@ -2,9 +2,7 @@ import { Button, Typography } from '@strapi/design-system';
 import { useEffect, useRef, useState } from 'react';
 import { useIntl } from 'react-intl';
 import { io, Socket } from 'socket.io-client';
-
 import { useMatch, useNavigate } from 'react-router-dom';
-
 import { Modal } from '@strapi/design-system';
 import { useAuth, useFetchClient } from '@strapi/strapi/admin';
 import { getTranslation } from '../../utils/getTranslation';
@@ -113,14 +111,15 @@ export default function EntityLock() {
     lockStatus.isLocked && (
       <Modal.Root open={true} onOpenChange={() => {}} modal={true}>
         <Modal.Content>
-          <Modal.Header>
+          {/* Manually construct the header without a close button */}
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <Typography fontWeight="bold" textColor="neutral800" as="h2" id="title">
               {formatMessage({
                 id: getTranslation('ModalWindow.CurrentlyEditing'),
                 defaultMessage: 'This entry is currently edited',
               })}
             </Typography>
-          </Modal.Header>
+          </div>
           <Modal.Body>
             <Typography>
               {formatMessage(
@@ -135,7 +134,6 @@ export default function EntityLock() {
             </Typography>
           </Modal.Body>
           <Modal.Footer>
-            {/* Remove the Close button to prevent manual dismissal */}
             <Button
               onClick={() => {
                 navigate(-1);
