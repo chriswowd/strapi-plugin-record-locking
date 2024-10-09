@@ -111,7 +111,7 @@ export default function EntityLock() {
 
   return (
     lockStatus.isLocked && (
-      <Modal.Root defaultOpen={true} onClose={null} preventOverlayClose={true}>
+      <Modal.Root open={true} onOpenChange={() => {}} modal={true}>
         <Modal.Content>
           <Modal.Header>
             <Typography fontWeight="bold" textColor="neutral800" as="h2" id="title">
@@ -135,6 +135,7 @@ export default function EntityLock() {
             </Typography>
           </Modal.Body>
           <Modal.Footer>
+            {/* Remove the Close button to prevent manual dismissal */}
             <Button
               onClick={() => {
                 navigate(-1);

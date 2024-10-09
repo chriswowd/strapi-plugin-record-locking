@@ -213,7 +213,8 @@ function EntityLock() {
   const lockStatus = useLockStatus();
   if (!lockStatus)
     return null;
-  return lockStatus.isLocked && /* @__PURE__ */ jsxRuntime.jsx(designSystem.Modal.Root, { defaultOpen: true, onClose: null, preventOverlayClose: true, children: /* @__PURE__ */ jsxRuntime.jsxs(designSystem.Modal.Content, { children: [
+  return lockStatus.isLocked && /* @__PURE__ */ jsxRuntime.jsx(designSystem.Modal.Root, { open: true, onOpenChange: () => {
+  }, modal: true, children: /* @__PURE__ */ jsxRuntime.jsxs(designSystem.Modal.Content, { children: [
     /* @__PURE__ */ jsxRuntime.jsx(designSystem.Modal.Header, { children: /* @__PURE__ */ jsxRuntime.jsx(designSystem.Typography, { fontWeight: "bold", textColor: "neutral800", as: "h2", id: "title", children: formatMessage({
       id: getTranslation("ModalWindow.CurrentlyEditing"),
       defaultMessage: "This entry is currently edited"
