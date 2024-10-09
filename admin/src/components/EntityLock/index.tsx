@@ -111,7 +111,7 @@ export default function EntityLock() {
 
   return (
     lockStatus.isLocked && (
-      <Modal.Root defaultOpen={true}>
+      <Modal.Root defaultOpen={true} onClose={null}>
         <Modal.Content>
           <Modal.Header>
             <Typography fontWeight="bold" textColor="neutral800" as="h2" id="title">
@@ -135,9 +135,6 @@ export default function EntityLock() {
             </Typography>
           </Modal.Body>
           <Modal.Footer>
-            <Modal.Close>
-              <Button variant="tertiary">OK</Button>
-            </Modal.Close>
             <Button
               onClick={() => {
                 navigate(-1);
