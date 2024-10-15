@@ -4,10 +4,11 @@ import { useIntl } from 'react-intl';
 import { io, Socket } from 'socket.io-client';
 import { useMatch, useNavigate } from 'react-router-dom';
 import { Modal } from '@strapi/design-system';
-import { useAuth, useFetchClient } from '@strapi/strapi/admin';
+import { useAuth, useFetchClient} from '@strapi/strapi/admin';
 import { getTranslation } from '../../utils/getTranslation';
 
 const useLockingData = () => {
+
   const collectionType = useMatch('/content-manager/collection-types/:entityId/:entityDocumentId');
   const singleType = useMatch('/content-manager/single-types/:entityId');
   const user = useAuth('ENTITY_LOCK', (state) => state.user);
@@ -141,3 +142,4 @@ export default function EntityLock() {
     )
   );
 }
+
