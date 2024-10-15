@@ -9,6 +9,10 @@
   "maintainers": [
     "Chris.Aziel"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chriswowd/strapi-plugin-record-locking.git"
+  },
   "exports": {
     "./package.json": "./package.json",
     "./strapi-admin": {
