@@ -14,25 +14,15 @@ const __variableDynamicImportRuntimeHelper = (glob, path) => {
     (typeof queueMicrotask === "function" ? queueMicrotask : setTimeout)(reject.bind(null, new Error("Unknown variable dynamic import: " + path)));
   });
 };
-const name = "@notum-cz/strapi-plugin-record-locking";
+const name = "record-locking";
 const version = "2.0.0";
-const description = "Hey I am editing, don't change my content";
+const description = "Custom built asset locking for stc (modified the plugin @notum-cz/strapi-plugin-record-locking).";
 const keywords = [];
-const homepage = "https://github.com/notum-cz/strapi-plugin-record-locking#readme";
-const type = "commonjs";
-const bugs = {
-  url: "https://github.com/notum-cz/strapi-plugin-record-locking/issues"
-};
-const repository = {
-  type: "git",
-  url: "git+https://github.com/notum-cz/strapi-plugin-record-locking.git"
-};
 const license = "MIT";
-const author = "Notum Technologies s.r.o. <sales@notum.cz> (https://notum.cz/en/strapi)";
+const type = "commonjs";
+const author = "Chris.Aziel";
 const maintainers = [
-  "Notum Technologies s.r.o. <sales@notum.cz> (https://notum.cz/en/strapi)",
-  "Martin Čapek <martin.capek@notum.cz> (https://notum.cz/en/strapi)",
-  "Dominik Juriga <dominik.juriga@notum.cz> (https://notum.cz/en/strapi)"
+  "Chris.Aziel"
 ];
 const exports = {
   "./package.json": "./package.json",
@@ -84,7 +74,7 @@ const devDependencies = {
 };
 const peerDependencies = {
   "@strapi/sdk-plugin": "^5.2.6",
-  "@strapi/strapi": "^5.0.0",
+  "@strapi/strapi": "^5.0.6",
   react: "^18.3.1",
   "react-dom": "^18.3.1",
   "react-router-dom": "^6.26.2",
@@ -97,7 +87,7 @@ const engines = {
 const strapi = {
   displayName: "Record locking",
   name: "record-locking",
-  description: "Hey I am editing, don't change my content",
+  description: "Custom built asset locking for stc (modified the plugin @notum-cz/strapi-plugin-record-locking).",
   required: false,
   kind: "plugin"
 };
@@ -106,11 +96,8 @@ const pluginPkg = {
   version,
   description,
   keywords,
-  homepage,
-  type,
-  bugs,
-  repository,
   license,
+  type,
   author,
   maintainers,
   exports,
@@ -122,7 +109,7 @@ const pluginPkg = {
   engines,
   strapi
 };
-const PLUGIN_ID = pluginPkg.name.replace(/^@notum-cz\/strapi-plugin-/i, "");
+const PLUGIN_ID = pluginPkg.name;
 const getTranslation = (id) => `${PLUGIN_ID}.${id}`;
 const useLockingData = () => {
   const collectionType = useMatch("/content-manager/collection-types/:entityId/:entityDocumentId");
@@ -280,9 +267,6 @@ const index = {
   }
 };
 const prefixPluginTranslations = (trad, pluginId) => {
-  if (!pluginId) {
-    throw new TypeError("pluginId can't be empty");
-  }
   return Object.keys(trad).reduce((acc, current) => {
     acc[`${pluginId}.${current}`] = trad[current];
     return acc;
